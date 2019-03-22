@@ -44,13 +44,8 @@ namespace CSharpConsoleExamples
                         foreach (var device in collection)
                         {
                             /* Information */
-                            string information = "\nDEVICE::" +
-                                                 "\nUSBVersion: {0}" +
-                                                 "\nDeviceID: {1}" +
-                                                 "\nPNPDeviceID: {2}" +
-                                                 "\nDescription: {3}" +
-                                                 "\nName: {4}" +
-                                                 "\nInstallDate: {5}";
+                            string information = "\nDEVICE::" + "\nUSBVersion: {0}" + "\nDeviceID: {1}" + "\nPNPDeviceID: {2}" +
+                                                 "\nDescription: {3}" + "\nName: {4}" + "\nInstallDate: {5}";
 
                             /* Properties */
                             int USBVersion = (type.Equals("Win32_USBHub") ? (device.GetPropertyValue("USBVersion") != null ? Convert.ToUInt16(device.GetPropertyValue("USBVersion")) : 0) : 0);
