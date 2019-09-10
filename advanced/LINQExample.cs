@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class LINQExample
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTORS FUNCTIONS
+
         public LINQExample ()
         {
-            /* Data */
+            // Data
             var countries = new[]
             {
                 new { ID = 1, CountryName = "Argentina", Language = "Spanish", Area = 2780.400, Population = 43847.430 },
@@ -25,53 +25,35 @@ namespace CSharpConsoleExamples
                 new { ID = 10, CountryName = "United States", Language = "English", Area = 3796.742 , Population = 327167.434 }
             };
 
-
-            /* List all */
+            // List all items
             Console.WriteLine ("##### ALL COUNTRIES ON THE LIST #####");
+            var countryNames = (from country in countries 
+                                select country.CountryName);
+            foreach (string name in countryNames) { Console.WriteLine (name); }
 
-            var countryNames = from country in countries
-                               select country.CountryName;
-
-            foreach (string name in countryNames)
-            {
-                Console.WriteLine (name);
-            }
-
-
-            /* Get max area */
+            // Get the max area
             var maxArea = (from country in countries
-                           where country.Area == countries.Max(x => x.Area)
-                           select country.CountryName + " - " + country.Area).ToArray();
-
+                           where country.Area == countries.Max (x => x.Area)
+                           select string.Concat (country.CountryName, " - ", country.Area)).ToArray ();
             Console.WriteLine ("\n##### Country with greatest area: {0} km #####", maxArea[0]);
 
-
-            /* Get max population */
+            // Get the max population
             var maxPopulation = (from country in countries
                                  where country.Population == countries.Max (x => x.Population)
-                                 select country.CountryName + " - " + country.Population).ToArray();
-
+                                 select string.Concat (country.CountryName, " - ", country.Population)).ToArray ();
             Console.WriteLine ("\n##### Country with greatest area: {0} habitants #####", maxPopulation[0]);
 
-
-            /* Filter by Language */
+            // Filter by language
             Console.WriteLine ("\n##### PORTUGUESE SPEAKING COUNTRIES #####");
+            var portugueseCountries = (from country in countries
+                                       where string.Equals (country.Language, "Portuguese")
+                                       select country.CountryName);
+            foreach (string country in portugueseCountries) { Console.WriteLine (country); }
 
-            var portugueseCountries = from country in countries
-                                      where country.Language == "Portuguese"
-                                      select country.CountryName;
-
-            foreach (string country in portugueseCountries)
-            {
-                Console.WriteLine (country);
-            }
-
-
-            /* Filter by Language (Length) */
+            // Filter by length of language
             var numberOfSpanishSpeakers = (from country in countries
                                            where country.Language == "Spanish"
                                            select country.CountryName).ToArray().Length;
-
             Console.WriteLine ("\n##### Number of spanish speaking countries: {0} #####", numberOfSpanishSpeakers);
         }
     }

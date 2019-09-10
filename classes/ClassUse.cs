@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class ClassUse
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public ClassUse ()
         {
+            // Instance and data
             Person person = new Person ();
+            person.SetFirstName ("Al");
+            person.SetLastName ("Simmons");
+            person.SetAge (30);
+            person.SetHeight (1.82);
+            person.SetWeight (80);
 
-            person.setFirstName ("Al");
-            person.setLastName ("Simmons");
-            person.setAge (30);
-            person.setHeight (1.82);
-            person.setWeight (80);
-
-            Console.WriteLine ("Name : " + person.getFullName ());
-            Console.WriteLine ("Age : " + person.getAge ());
-            Console.WriteLine ("Height : " + person.getHeight () + " m ");
-            Console.WriteLine ("Weight : " + person.getWeight () + " kg ");
+            // Shows Data
+            Console.WriteLine ("Name : " + person.GetFullName ());
+            Console.WriteLine ("Age : " + person.GetAge ());
+            Console.WriteLine ("Height : " + person.GetHeight () + " m ");
+            Console.WriteLine ("Weight : " + person.GetWeight () + " kg ");
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class BasicOperators
     {
@@ -16,14 +12,18 @@ namespace CSharpConsoleExamples
         private double divide;
         private double modulus;
 
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public BasicOperators ()
         {
-            sum = a + b;
-            substract = a - b;
-            multiply = a * b;
-            divide = a / b;
-            modulus = a % b;
+            sum = (a + b);
+            substract = (a - b);
+            multiply = (a * b);
+            divide = (a / b);
+            modulus = (a % b);
 
+            // Shows data
             Console.WriteLine ($"a = {a}; b = {b};");
             Console.WriteLine ("sum = " + sum);
             Console.WriteLine ("substract = " + substract);

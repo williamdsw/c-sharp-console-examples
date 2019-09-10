@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class AnonymousClasses
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public AnonymousClasses ()
         {
             var person = new
@@ -20,6 +19,7 @@ namespace CSharpConsoleExamples
                 goals = 97
             };
 
+            // Shows data
             Console.WriteLine ("First Name = " + person.firstName);
             Console.WriteLine ("Last Name = " + person.lastName);
             Console.WriteLine ("Nationality  = " + person.nationality);

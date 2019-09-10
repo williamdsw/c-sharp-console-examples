@@ -1,25 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class ListExample
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public ListExample ()
         {
             String output = "";
             List<int> numbers = new List<int>();
 
-            /* Filling */
+            // Filling
             for (int i = 0; i < 10; i++)
             {
                 numbers.Add (i * i);
             }
 
-            /* Iterates */
+            // Iterates
             Console.WriteLine ("Numbers in the list: ");
             for (int i = 0; i < numbers.Count; i++)
             {
@@ -28,16 +29,16 @@ namespace CSharpConsoleExamples
 
             Console.WriteLine (output);
             
-            /* Insert value at specified index */
+            // Insert value at specified index
             numbers.Insert (numbers.Count - 1, 150);
 
-            /* Remove first ocorrence of value */
+            // Remove first ocorrence of value
             numbers.Remove (4);
 
-            /* Remove value at specified index */
+            // Remove value at specified index
             numbers.RemoveAt (6);
 
-            /* Iterates */
+            // Iterates
             output = "";
             Console.WriteLine("List modified: ");
             foreach (int n in numbers)
@@ -47,7 +48,7 @@ namespace CSharpConsoleExamples
 
             Console.WriteLine (output);
 
-            /* Other functions */
+            // Other functions
             double average = numbers.Average ((n) => n);
             bool contains36 = numbers.Contains (36);
             int maximum = numbers.Max ();

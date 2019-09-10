@@ -1,25 +1,23 @@
-﻿using System;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Text;
 
-/* Solution to “The given key was not present in the dictionary” = 
- * get the updated "MySql.Data.dll" */
+// Solution to “The given key was not present in the dictionary” = get the updated "MySql.Data.dll"
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class UpdateCommand
     {
-        private class Team
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
+        public UpdateCommand ()
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string City { get; set; }
-            public string Country { get; set; }
-            public int YearFoundation { get; set; }
-            public string Stadium { get; set; }
-            public DateTime LastChanged { get; set; }
+            Util ();
         }
 
-        public UpdateCommand () {}
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
 
         // UPDATE 
         private bool Update (Team model)
@@ -28,29 +26,30 @@ namespace CSharpConsoleExamples
 
             try
             {
-                using (MySqlConnection connection = new DatabaseConnection().getConnection())
+                using (MySqlConnection connection = new DatabaseConnection ().GetConnection ())
                 {
-                    connection.Open();
+                    connection.Open ();
 
-                    /* SQL query */
-                    String query = " UPDATE team " +
-                                   " SET name = @name, " +
-                                   "     city = @city, " +
-                                   "     country = @country, " +
-                                   "     year_foundation = @year_foundation, " +
-                                   "     stadium = @stadium, " +
-                                   "     last_changed = @last_changed " +
-                                   " WHERE id = @id ";
+                    // SQL Query
+                    StringBuilder builder = new StringBuilder ();
+                    builder.Append (" UPDATE team ");
+                    builder.Append (" SET name = @name, ");
+                    builder.Append (" city = @city, ");
+                    builder.Append (" country = @country, ");
+                    builder.Append (" year_foundation = @year_foundation, ");
+                    builder.Append (" stadium = @stadium, ");
+                    builder.Append (" last_changed = @last_changed ");
+                    builder.Append (" WHERE id = @id ");
 
-                    /* Command and parameters */
-                    MySqlCommand command = new MySqlCommand(query, connection);
+                    // Parameters
+                    MySqlCommand command = new MySqlCommand (builder.ToString (), connection);
                     command.Parameters.AddWithValue ("@name", model.Name);
                     command.Parameters.AddWithValue ("@city", model.City);
                     command.Parameters.AddWithValue ("@country", model.Country);
                     command.Parameters.AddWithValue ("@year_foundation", model.YearFoundation);
                     command.Parameters.AddWithValue ("@stadium", model.Stadium);
                     command.Parameters.AddWithValue ("@last_changed", model.LastChanged);
-                    command.Parameters.AddWithValue ("@ID", model.ID);
+                    command.Parameters.AddWithValue ("@id", model.ID);
 
                     executed = (command.ExecuteNonQuery() == 1);
                 }
@@ -63,11 +62,11 @@ namespace CSharpConsoleExamples
             return executed;
         }
 
-        public void Util ()
+        private void Util ()
         {
             try
             {
-                /* Previous = "Liverpool", now "Manchester United" */
+                // Data
                 Team team_a = new Team();
                 team_a.ID = 1;                        // see 'select' command
                 team_a.Name = "Manchester United";
@@ -77,9 +76,10 @@ namespace CSharpConsoleExamples
                 team_a.Stadium = "Old Trafford";
                 team_a.LastChanged = DateTime.Now;
 
-                bool executed = Update(team_a);
-
-                Console.WriteLine("Liverpool {0} changed to Manchester United", (executed ? "was" : "wasn't"));
+                // Output
+                bool executed = Update (team_a);
+                string status = (executed ? "was" : "wasn't");
+                Console.WriteLine ("Liverpool {0} changed to Manchester United", status);
             }
             catch (Exception ex)
             {

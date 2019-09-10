@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class StackExample
     {
-        public StackExample()
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
+        public StackExample ()
         {
             string[] colorsArray = { "Black", "Red", "Yellow", "Blue", "Green", "Orange", "Pink", "Grey" };
             Stack<string> colors = new Stack<string> ();
 
-            /* Adding */
+            // Adding
             foreach (string color in colorsArray)
             {
                 colors.Push (color);
                 Console.WriteLine ("{0} has been pushed to Stack", color);
             }
 
-            /* Remove values */
+            // Remove values
             Console.WriteLine ("");
             while (colors.Count > 0)
             {

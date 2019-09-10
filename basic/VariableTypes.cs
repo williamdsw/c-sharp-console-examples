@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class VariableTypes
     {
@@ -15,7 +13,7 @@ namespace CSharpConsoleExamples
         private char myCharacter = 'x';
         private bool myBoolean = true;
 
-        /* Wrappers */
+        // Wrappers
         private Int16 otherInteger = 33;
         private Double otherDouble = 22.453;
         private Decimal otherDecimal = 10.99M;
@@ -23,8 +21,12 @@ namespace CSharpConsoleExamples
         private Char otherCharacter = 'z';
         private Boolean otherBoolean = false;
 
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public VariableTypes ()
         {
+            // Shows data
             Console.WriteLine ("myInteger : " + myInteger);
             Console.WriteLine ("myLong : " + myLong);
             Console.WriteLine ("myFloat : " + myFloat);

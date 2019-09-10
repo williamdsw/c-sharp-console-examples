@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class QueueExample
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public QueueExample ()
         {
             string[] teamsArray = { "Arsenal", "Chelsea", "Liverpool", "Manchester City", "Manchester United", "Tottenham" };
             Queue<string> teams = new Queue<string> ();
 
-            /* Add values */
+            // Add values
             foreach (string team in teamsArray)
             {
                 teams.Enqueue (team);
                 Console.WriteLine("{0} has joined the Premier League", team);
             }
 
-            /* Remove values */
+            // Remove values
             Console.WriteLine ("");
             while (teams.Count > 0)
             {

@@ -1,51 +1,50 @@
 ﻿using System;
+using System.Text;
 using MySql.Data.MySqlClient;
 
-/* Solution to “The given key was not present in the dictionary” = 
- * get the updated "MySql.Data.dll"*/
+// Solution to “The given key was not present in the dictionary” = get the updated "MySql.Data.dll"
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class InsertCommand
     {
-        private class Team
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
+        public InsertCommand ()
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string City { get; set; }
-            public string Country { get; set; }
-            public int YearFoundation { get; set; }
-            public string Stadium { get; set; }
-            public DateTime LastChanged { get; set; }
+            Util ();
         }
 
-        public InsertCommand() {}
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
 
         // INSERT 
         private bool Insert (Team model)
         {
-            bool executed = false; 
+            bool hasExecuted = false; 
 
             try
             {
-                using (MySqlConnection connection = new DatabaseConnection().getConnection())
+                using (MySqlConnection connection = new DatabaseConnection ().GetConnection ())
                 {
                     connection.Open ();
 
-                    /* SQL query */
-                    String query = " INSERT INTO team (name, city, country, year_foundation, stadium, last_changed) " +
-                                   " VALUES (@name, @city, @country, @year_foundation, @stadium, @last_changed) ";
+                    // SQL Query
+                    StringBuilder query = new StringBuilder ();
+                    query.Append (" INSERT INTO team (name, city, country, year_foundation, stadium, last_changed) ");
+                    query.Append (" VALUES (@name, @city, @country, @year_foundation, @stadium, @last_changed) ");
 
-                    /* Command and parameters */
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@name", model.Name);
-                    command.Parameters.AddWithValue("@city", model.City);
-                    command.Parameters.AddWithValue("@country", model.Country);
-                    command.Parameters.AddWithValue("@year_foundation", model.YearFoundation);
-                    command.Parameters.AddWithValue("@stadium", model.Stadium);
-                    command.Parameters.AddWithValue("@last_changed", model.LastChanged);
+                    // Parameters
+                    MySqlCommand command = new MySqlCommand (query.ToString (), connection);
+                    command.Parameters.AddWithValue ("@name", model.Name);
+                    command.Parameters.AddWithValue ("@city", model.City);
+                    command.Parameters.AddWithValue ("@country", model.Country);
+                    command.Parameters.AddWithValue ("@year_foundation", model.YearFoundation);
+                    command.Parameters.AddWithValue ("@stadium", model.Stadium);
+                    command.Parameters.AddWithValue ("@last_changed", model.LastChanged);
 
-                    executed = (command.ExecuteNonQuery() == 1);
+                    hasExecuted = (command.ExecuteNonQuery() == 1);
                 }
             }
             catch (Exception ex)
@@ -53,54 +52,53 @@ namespace CSharpConsoleExamples
                 Console.WriteLine (ex.Message);
             }
 
-            return executed;
+            return hasExecuted;
         }
 
-        public void Util ()
+        private void Util ()
         {
             try
             {
-                /* Data */
-                Team team_a = new Team();
-                team_a.Name = "Liverpool";
-                team_a.City = "Liverpool";
-                team_a.Country = "England";
-                team_a.YearFoundation = 1892;
-                team_a.Stadium = "Anfield";
-                team_a.LastChanged = DateTime.Now;
+                // New Data
+                Team first = new Team ();
+                first.Name = "Liverpool";
+                first.City = "Liverpool";
+                first.Country = "England";
+                first.YearFoundation = 1892;
+                first.Stadium = "Anfield";
+                first.LastChanged = DateTime.Now;
 
-                Team team_b = new Team();
-                team_b.Name = "AC Milan";
-                team_b.City = "Milan";
-                team_b.Country = "Italy";
-                team_b.YearFoundation = 1889;
-                team_b.Stadium = "Giuseppe Meazza";
-                team_b.LastChanged = DateTime.Now;
+                Team second = new Team ();
+                second.Name = "AC Milan";
+                second.City = "Milan";
+                second.Country = "Italy";
+                second.YearFoundation = 1889;
+                second.Stadium = "Giuseppe Meazza";
+                second.LastChanged = DateTime.Now;
 
-                Team team_c = new Team();
-                team_c.Name = "Real Madrid";
-                team_c.City = "Madrid";
-                team_c.Country = "Spain";
-                team_c.YearFoundation = 1902;
-                team_c.Stadium = "Santiago Bernabeu";
-                team_c.LastChanged = DateTime.Now;
+                Team third = new Team();
+                third.Name = "Real Madrid";
+                third.City = "Madrid";
+                third.Country = "Spain";
+                third.YearFoundation = 1902;
+                third.Stadium = "Santiago Bernabeu";
+                third.LastChanged = DateTime.Now;
 
-                Team team_d = new Team();
-                team_d.Name = "AFC Ajax";
-                team_d.City = "Amsterdam";
-                team_d.Country = "Netherlands";
-                team_d.YearFoundation = 1892;
-                team_d.Stadium = "Amsterdam ArenA";
-                team_d.LastChanged = DateTime.Now;
+                Team fourth = new Team();
+                fourth.Name = "AFC Ajax";
+                fourth.City = "Amsterdam";
+                fourth.Country = "Netherlands";
+                fourth.YearFoundation = 1892;
+                fourth.Stadium = "Amsterdam ArenA";
+                fourth.LastChanged = DateTime.Now;
 
-                var teams = new[] { team_a, team_b, team_c, team_d };
-
-                /* inserts */
+                // Insert array of objects
+                var teams = new[] { first, second, third, fourth };
                 foreach (var team in teams)
                 {
-                    bool executed = Insert(team);
-
-                    Console.WriteLine("{0} {1} added to database", team.Name, (executed ? "was" : "wasn't"));
+                    bool executed = Insert (team);
+                    string status = (executed ? "was" : "wasn't");
+                    Console.WriteLine ("{0} {1} added to database", team.Name, status);
                 }
             }
             catch (Exception ex)

@@ -1,10 +1,14 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class ScanDevicesSimple
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTORS
+
         public ScanDevicesSimple ()
         {
             try
@@ -15,17 +19,18 @@ namespace CSharpConsoleExamples
                 {
                     if (drive.IsReady)
                     {
-                        /* Information */
-                        string information = "\nDEVICE:: \nName: {0} \nVolume Label: {1} " +
-                                             "\nTotal Size: {2} \nTotal Free Space {3} " +
-                                             "\nAvailable Free Space: {4} \nDrive Type: {5} " +
-                                             "\nDrive Format: {6} \nRoot Directory: {7} ";
-
-                        /* Properties of device */
-                        information = String.Format (information, drive.Name, drive.VolumeLabel,
-                                                     drive.TotalSize, drive.TotalFreeSpace, drive.AvailableFreeSpace,
-                                                     drive.DriveType, drive.DriveFormat, drive.RootDirectory);
-
+                        // Information
+                        StringBuilder information = new StringBuilder ();
+                        information.Append ("\nDEVICE:: ");
+                        information.AppendFormat ("\nName: {0}", drive.Name);
+                        information.AppendFormat ("\nVolume Label: {0}", drive.VolumeLabel);
+                        information.AppendFormat ("\nTotal Size: {0}", drive.TotalSize);
+                        information.AppendFormat ("\nTotal Free Space {0}", drive.TotalFreeSpace);
+                        information.AppendFormat ("\nAvailable Free Space: {0}", drive.AvailableFreeSpace);
+                        information.AppendFormat ("\nDrive Type: {0}", drive.DriveType);
+                        information.AppendFormat ("\nDrive Format: {0}", drive.DriveFormat);
+                        information.AppendFormat ("\nRoot Directory: {0}", drive.RootDirectory);
+                        information.AppendFormat ("\nIsReady: {0}", drive.IsReady);
                         Console.WriteLine (information);
                     }
                 }

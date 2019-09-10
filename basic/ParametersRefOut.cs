@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class ParametersRefOut
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public ParametersRefOut ()
         {
             // initial value
@@ -24,9 +23,12 @@ namespace CSharpConsoleExamples
 
             // out initialization
             int otherValue;
-            Initializate (out otherValue);
+            Initialize (out otherValue);
             Console.WriteLine ("Value initializated using OUT = " + otherValue);
         }
+
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
 
         private void Increment (int value)
         {
@@ -38,7 +40,7 @@ namespace CSharpConsoleExamples
             value++;
         }
 
-        private void Initializate (out int value)
+        private void Initialize (out int value)
         {
             value = 10;
         }

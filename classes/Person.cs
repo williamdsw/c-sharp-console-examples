@@ -1,74 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CSharpConsoleExamples
+﻿
+namespace c_sharp_console_examples
 {
     class Person
     {
-        private String firstName;
-        private String lastName;
+        //-----------------------------------------------------------------------//
+        // FIELDS
+
+        private string firstName;
+        private string lastName;
         private int age;
         private double height;
         private double weight;
 
-        public Person () { }
+        //-----------------------------------------------------------------------//
+        // GETTERS / SETTERS
 
-        public String getFirstName ()
+        public string GetFirstName ()
         {
             return this.firstName;
         }
 
-        public void setFirstName (String value)
+        public void SetFirstName (string value)
         {
             this.firstName = value;
         }
 
-        public String getLastName ()
+        public string GetLastName ()
         {
             return this.lastName;
         }
 
-        public void setLastName (String value)
+        public void SetLastName (string value)
         {
             this.lastName = value;
         }
 
-        public int getAge ()
+        public int GetAge ()
         {
             return this.age;
         }
 
-        public void setAge (int value)
+        public void SetAge (int value)
         {
             this.age = value;
         }
 
-        public double getHeight ()
+        public double GetHeight ()
         {
             return this.height;
         }
 
-        public void setHeight (double value)
+        public void SetHeight (double value)
         {
             this.height = value;
         }
 
-        public double getWeight()
+        public double GetWeight ()
         {
             return this.weight;
         }
 
-        public void setWeight (double value)
+        public void SetWeight (double value)
         {
             this.weight = value;
         }
 
-        public String getFullName ()
+        public string GetFullName ()
         {
-            return this.firstName + " " + this.lastName;
+            return string.Concat (this.firstName, " ", this.lastName);
         }
     }
 }

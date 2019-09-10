@@ -1,41 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
+using System;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class DatabaseConnection
     {
-        /* Parameters */
-        private String server = "localhost";
-        private String database = "csharp_console_1";
-        private String user = "root";
-        private String password = "root";
-        private int port = 3306;
+        //-----------------------------------------------------------------------//
+        // FIELDS
 
+        // Config
+        private const string SERVER = "localhost";
+        private const string DATABASE = "csharp_console_1";
+        private const string USER_ID = "root";
+        private const string PASSWORD = "root";
+        private const int PORT = 3306;
+
+        // Cached
         private MySqlConnection connection;
+
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
 
         public DatabaseConnection ()
         {
-            connection = new MySqlConnection (getConnectionString());
+            connection = new MySqlConnection (GetConnectionString());
         }
 
-        private String getConnectionString ()
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
+
+        private string GetConnectionString ()
         {
-            return " SERVER = " + server + "; DATABASE = " + database +
-                   "; PORT = " + port + "; User ID = " + user + "; PASSWORD = " + password +
-                   "; ALLOW USER VARIABLES=TRUE; CHARSET=utf8; ";
+            return $" SERVER = {SERVER}; DATABASE = {DATABASE}; PORT = {PORT}; " + 
+                   $" USER ID = {USER_ID}; PASSWORD = {PASSWORD}; " + 
+                   $" ALLOW USER VARIABLES = TRUE; CHARSET = utf8; ";
         }
 
-        public MySqlConnection getConnection ()
+        public MySqlConnection GetConnection ()
         {
             return connection;
         }
 
-        public void printConnectionProperties ()
+        public void ShowConnectionProperties ()
         {
             try
             {

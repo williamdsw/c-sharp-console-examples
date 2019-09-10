@@ -1,49 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class UsingExamples
     {
+        private const string filePath = "my-file.txt";
+
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public UsingExamples ()
         {
-            createFile ();
-            readFile ();
+            CreateFile (filePath);
+            ReadFile (filePath);
         }
 
-        private void createFile ()
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
+
+        private void CreateFile (string filePath)
         {
-            /* Content */
+            // Data
             StringBuilder builder = new StringBuilder();
             builder.AppendLine ("London Bridge is falling down,");
             builder.AppendLine ("Falling down, falling down.");
             builder.AppendLine ("London Bridge is falling down,");
             builder.AppendLine ("My fair lady");
 
-            using (StreamWriter writer = new StreamWriter ("myFile.txt"))
+            using (StreamWriter writer = new StreamWriter (filePath))
             {
                 writer.WriteLine (builder);
             }
 
-            Console.WriteLine ("File created");
+            // Checks
+            if (File.Exists (filePath))
+            {
+                Console.WriteLine ("File created successfully");
+            }
+            else 
+            {
+                Console.WriteLine ("Error on file's creation");
+            }
         }
 
-        private void readFile ()
+        private void ReadFile (string filePath)
         {
-            String content = "";
+            // Checks
+            if (!File.Exists (filePath))
+            {
+                Console.WriteLine ("File doesn't exist.");
+                return;
+            }
 
-            using (TextReader reader = new StreamReader("myFile.txt"))
+            // Reads data
+            String content = string.Empty;
+            using (TextReader reader = new StreamReader (filePath))
             {
                 content = reader.ReadToEnd ();
             }
 
             Console.WriteLine (content);
-
-            File.Delete ("myFile.txt");
+            File.Delete (filePath);
         }
     }
 }

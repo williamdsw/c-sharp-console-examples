@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class HashSetExample
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public HashSetExample ()
         {
             string[] franceArr = { "Lloris", "Pavard", "Varane", "Umtiti", "Lucas", "Mbappe", "Pogba", "Kante", "Matuidi", "Griezmann", "Giroud" };
@@ -28,7 +28,7 @@ namespace CSharpConsoleExamples
                 Console.WriteLine (player);
             }
 
-            /* Merges */
+            // Merge hash sets
             HashSet<string> allPlayers = france;
             allPlayers.UnionWith (croatia);
 

@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class SortedListExample
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public SortedListExample ()
         {
             SortedList<string, int> teamAges = new SortedList<string, int> ();
 
-            /* Adding */
+            // Adding
             teamAges.Add ("AC Milan", 1899);
             teamAges.Add ("Juventus", 1897);
             teamAges.Add ("Internazionale", 1908);
@@ -20,12 +20,13 @@ namespace CSharpConsoleExamples
             teamAges.Add ("Napoli", 1926);
             teamAges.Add ("Lazio", 1990);
 
-            /* Iterates */
+            // Iterates
             foreach (KeyValuePair<string, int> pair in teamAges)
             {
                 string name = pair.Key;
                 int yearFoundation = pair.Value;
-                Console.WriteLine ("{0} have {1} years", name, (DateTime.Now.Year - yearFoundation));
+                int currentYear = DateTime.Now.Year;
+                Console.WriteLine ("{0} have {1} years", name, (currentYear - yearFoundation));
             }
         }
     }

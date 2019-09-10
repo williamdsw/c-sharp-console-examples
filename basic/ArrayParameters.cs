@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class ArrayParameters
     {
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public ArrayParameters ()
         {
             // "fills" the black hole
             BlackHole ("String", 1, 1.0, 105.22F, true, new Object (), 1.45D);
 
-            // sums with diverses parameters
-            int firstSum = sum ();
-            int secondSum = sum (new Random().Next(), new Random().Next());
-            int thirdSum = sum (10, -1, 554);
-            int fourthSum = sum (-15, -30, 200, 4562, -3000);
+            // Sum with diverses parameters
+            int firstSum = Sum ();
+            int secondSum = Sum (new Random().Next(), new Random().Next());
+            int thirdSum = Sum (10, -1, 554);
+            int fourthSum = Sum (-15, -30, 200, 4562, -3000);
 
             Console.WriteLine (firstSum);
             Console.WriteLine (secondSum);
@@ -25,7 +24,11 @@ namespace CSharpConsoleExamples
             Console.WriteLine (fourthSum);
         }
 
-        public int sum (params int[] values)
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
+
+        // "params type[] field" = Array parameters
+        private int Sum (params int[] values)
         {
             int result = 0;
 
@@ -40,7 +43,8 @@ namespace CSharpConsoleExamples
             return result;
         }
 
-        public void BlackHole (params object[] objects)
+        // Array parameters with multiple types
+        private void BlackHole (params object[] objects)
         {
             if (objects == null)
             {
@@ -48,9 +52,9 @@ namespace CSharpConsoleExamples
             }
             else
             {
-                foreach (object obj in objects)
+                foreach (object myObject in objects)
                 {
-                    Console.WriteLine (obj);
+                    Console.WriteLine (myObject);
                 }
             }
         }

@@ -1,73 +1,71 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
+using System.Text;
 
-/* Solution to “The given key was not present in the dictionary” = 
- * get the updated "MySql.Data.dll"*/
+// Solution to “The given key was not present in the dictionary” = get the updated "MySql.Data.dll"
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class DeleteCommand
     {
-        private class Team
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
+        public DeleteCommand ()
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string City { get; set; }
-            public string Country { get; set; }
-            public int YearFoundation { get; set; }
-            public string Stadium { get; set; }
-            public DateTime LastChanged { get; set; }
+            Util ();
         }
 
-        public DeleteCommand() {}
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
 
         // DELETE 
-        private bool Delete (List<int> IDs)
+        private bool Delete (int id)
         {
             bool executed = false;
 
             try
             {
-                String query = " DELETE FROM team " +
-                               " WHERE id = @id ";
+                // SQL Query
+                StringBuilder builder = new StringBuilder ();
+                builder.Append (" DELETE FROM team WHERE id = @id ");
 
-                using (MySqlConnection connection = new DatabaseConnection().getConnection())
+                using (MySqlConnection connection = new DatabaseConnection ().GetConnection ())
                 {
-                    connection.Open();
-
-                    foreach (int id in IDs)
-                    {
-                        if (id > 0)
-                        {
-                            /* Parameters */
-                            MySqlCommand command = new MySqlCommand (query, connection);
-                            command.Parameters.AddWithValue ("@id", id);
-
-                            executed = (command.ExecuteNonQuery () == 1);
-                        }
-                    }
+                    connection.Open ();
+                    MySqlCommand command = new MySqlCommand (builder.ToString (), connection);
+                    command.Parameters.AddWithValue ("@id", id);
+                    executed = (command.ExecuteNonQuery () == 1);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine (ex.Message);
             }
 
             return executed;
         }
 
-        public void Util ()
+        private void Util ()
         {
             try
             {
+                // Data
                 List<int> IDs = new List<int>();
-                IDs.Add(1);
-                IDs.Add(3);
+                IDs.Add (1);
+                IDs.Add (2);
+                IDs.Add (3);
+                IDs.Add (4);
 
-                bool executed = Delete (IDs);
-
-                Console.WriteLine ("{0} teams {1} deleted successfully.", IDs.Count, (executed ? "was" : "wasn't"));
+                // Output
+                int index = 0;
+                foreach (int id in IDs)
+                {
+                    bool executed = Delete (id);
+                    Console.WriteLine ("{0}º team {1} deleted successfully.", (index + 1), (executed ? "was" : "wasn't"));
+                    index++;
+                }
             }
             catch (Exception ex)
             {

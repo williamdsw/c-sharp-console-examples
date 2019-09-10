@@ -1,32 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class DelegateExample
     {
-        delegate void myDelegate ();
+        private const int MAX_NUMBER_OF_OCCURRENCES = 100;
+        private delegate void Delegate ();
+
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
 
         public DelegateExample ()
         {
-            /* New delegate and call */
-            myDelegate del = new myDelegate (printRandomIntegers);
-            del ();
+            // Sets the new delegate
+            Delegate myDelegate = new Delegate (PrintRandomIntegers);
+            myDelegate ();
         }
 
-        private void printRandomIntegers ()
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
+
+        private void PrintRandomIntegers ()
         {
+            // Prints a number between 0 and 100
             Console.WriteLine ("Random Integers between 0 and 100:");
-
             Random random = new Random ();
-
-            /* Prints a number between 0 and 100 */
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < MAX_NUMBER_OF_OCCURRENCES; i++)
             {
-                Console.WriteLine (random.Next (100));
+                int nextInteger = random.Next (MAX_NUMBER_OF_OCCURRENCES);
+                Console.Write ($" {nextInteger} ");
             }
         }
     }

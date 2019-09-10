@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class NullableTypes
     {
@@ -14,15 +10,19 @@ namespace CSharpConsoleExamples
         private double? myDouble = null;
         private bool? myBool = null;
 
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public NullableTypes ()
         {
             try
             {
-                // define values
+                // Checks and define values
                 myLong = (myLong.HasValue ? myLong : 100L);
                 myFloat = (myFloat.HasValue ? myFloat : 0.111F);
                 myDouble = (myDouble.HasValue ? myDouble : new Random ().NextDouble ());
 
+                // Shows data
                 Console.WriteLine ("My nullable integer has a value ? = " + myInteger.HasValue);
                 Console.WriteLine ("My nullable long = " + myLong);
                 Console.WriteLine ("My nullable float = " + myFloat);

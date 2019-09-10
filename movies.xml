@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--example of comment-->
+<movies>
+    <movie id="1">
+        <title>Die Hard</title>
+        <genre>Action Thriller</genre>
+        <year>1988</year>
+    </movie>
+    <movie id="2">
+        <title>The Exorcist</title>
+        <genre>Supernatural Horror</genre>
+        <year>1971</year>
+    </movie>
+    <movie id="3">
+        <title>Batman Begins</title>
+        <genre>Superhero</genre>
+        <year>2005</year>
+    </movie>
+</movies>

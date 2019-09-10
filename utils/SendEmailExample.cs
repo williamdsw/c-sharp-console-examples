@@ -1,64 +1,73 @@
 ﻿using System;
 using System.Net.Mail;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class SendEmailExample
     {
+        private const string SENDER = "myemail@gmail.com";
+        private const string PASSWORD = "mypassword";
+        private const string HOST = "smtp.gmail.com";
+        private const int PORT = 587;
+
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
+
         public SendEmailExample ()
         {
-            Send();
+            Send ();
         }
+
+        //-----------------------------------------------------------------------//
+        // HELPER FUNCTIONS
 
         private async void Send ()
         {
             try
             {
-                using (SmtpClient client = new SmtpClient ())
+                using (SmtpClient smtpClient = new SmtpClient ())
                 {
-                    /* Parameters for client (gmail) */
-                    string sender = "myemail@gmail.com";
-                    string password = "mypassword";
-                    client.Host = "smtp.gmail.com";
-                    client.Port = 587;
-                    client.EnableSsl = true;
-                    client.UseDefaultCredentials = true;
-                    client.Credentials = new System.Net.NetworkCredential (sender, password);
+                    // Parameters for client (gmail)
+                    smtpClient.Host = HOST;
+                    smtpClient.Port = PORT;
+                    smtpClient.EnableSsl = true;
+                    smtpClient.UseDefaultCredentials = true;
+                    smtpClient.Credentials = new System.Net.NetworkCredential (SENDER, PASSWORD);
 
-                    using (MailMessage mail = new MailMessage())
+                    using (MailMessage mailMessage = new MailMessage())
                     {
-                        /* Lists of emails, files paths */
+                        // Lists of emails, files paths
                         string[] toEmails = { "example1@gmail.com", "example2@gmail.com", "example3@gmail.com" };
                         string[] ccEmails = { "example4@gmail.com", "example5@gmail.com", "example6@gmail.com" };
                         string[] bccEmails = { "example7@gmail.com", "example8@gmail.com", "example9@gmail.com" };
                         string[] filePaths = { "C://file.txt", "C://file.xml", "C://file.mp3" };
 
-                        mail.From = new MailAddress (sender);
+                        mailMessage.From = new MailAddress (SENDER);
 
                         foreach (string to in toEmails)
                         {
-                            mail.To.Add (new MailAddress (to));
+                            mailMessage.To.Add (new MailAddress (to));
                         }
 
                         foreach (string cc in ccEmails)
                         {
-                            mail.CC.Add (new MailAddress (cc));
+                            mailMessage.CC.Add (new MailAddress (cc));
                         }
 
                         foreach (string bcc in bccEmails)
                         {
-                            mail.Bcc.Add (new MailAddress (bcc));
+                            mailMessage.Bcc.Add (new MailAddress (bcc));
                         }
 
                         foreach (string path in filePaths)
                         {
-                            mail.Attachments.Add (new Attachment (path));
+                            mailMessage.Attachments.Add (new Attachment (path));
                         }
 
-                        mail.Subject = "Subject email test using C#";
-                        mail.Body = "Subject body test using C#";
+                        mailMessage.Subject = "Subject email test using C#";
+                        mailMessage.Body = "Subject body test using C#";
 
-                        await client.SendMailAsync (mail);
+                        await smtpClient.SendMailAsync (mailMessage);
 
                         Console.WriteLine ("Email sent...");
                     }

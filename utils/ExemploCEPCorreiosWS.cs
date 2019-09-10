@@ -1,26 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+// OBS: FUNCIONA COM VISUAL STUDIO, NAO COM O CODE.
+// BASTA ADICIONAR A URL ABAIXO COMO NOVO SERVICO.
+// https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl
+
 
 namespace CSharpConsoleExamples
 {
-    /* https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl */
-
     class ExemploCEPCorreiosWS
     {
         public ExemploCEPCorreiosWS ()
         {
             string CEP = "13303502";
 
-            /* WebService client */
+            // WebService client
             var client = new AtendeClienteService.AtendeClienteClient ();
 
-            /* Retorno pesquisa */
+            // Retorno pesquisa
             var result = client.consultaCEP (CEP);
 
-            /* Campos */
+            // Campos
             var data = new
             {
                 bairro = result.bairro,

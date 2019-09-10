@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CSharpConsoleExamples
+namespace c_sharp_console_examples
 {
     class Casting
     {
@@ -12,6 +8,9 @@ namespace CSharpConsoleExamples
         private double myDouble = 134.56;
         private string myString = "1534";
         private Object myObject;
+
+        //-----------------------------------------------------------------------//
+        // CONSTRUCTOR
 
         public Casting ()
         {
@@ -21,6 +20,7 @@ namespace CSharpConsoleExamples
             String otherString = myObject as String;
             bool isTypeString = myObject is String;
 
+            // Shows data
             Console.WriteLine ("My Integer = " + myInteger);
             Console.WriteLine ("My Double = " + myDouble);
             Console.WriteLine ("My String = " + myString);

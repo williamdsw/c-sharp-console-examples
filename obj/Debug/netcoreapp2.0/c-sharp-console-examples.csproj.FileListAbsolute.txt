@@ -1,0 +1,10 @@
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\obj\Debug\netcoreapp2.0\c-sharp-console-examples.csproj.CoreCompileInputs.cache
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\obj\Debug\netcoreapp2.0\c-sharp-console-examples.AssemblyInfoInputs.cache
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\obj\Debug\netcoreapp2.0\c-sharp-console-examples.AssemblyInfo.cs
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\bin\Debug\netcoreapp2.0\c-sharp-console-examples.deps.json
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\bin\Debug\netcoreapp2.0\c-sharp-console-examples.runtimeconfig.json
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\bin\Debug\netcoreapp2.0\c-sharp-console-examples.runtimeconfig.dev.json
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\bin\Debug\netcoreapp2.0\c-sharp-console-examples.dll
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\bin\Debug\netcoreapp2.0\c-sharp-console-examples.pdb
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\obj\Debug\netcoreapp2.0\c-sharp-console-examples.dll
+C:\Users\William\Documents\GitHub\c-sharp-console-examples\obj\Debug\netcoreapp2.0\c-sharp-console-examples.pdb
