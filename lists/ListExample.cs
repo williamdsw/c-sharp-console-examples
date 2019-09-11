@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace c_sharp_console_examples
 {
-    class ListExample
+    public class ListExample
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

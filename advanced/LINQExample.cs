@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace c_sharp_console_examples
 {
-    class LINQExample
+    public class LINQExample
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTORS FUNCTIONS

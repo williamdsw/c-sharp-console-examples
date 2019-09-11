@@ -6,7 +6,7 @@ using System.Text;
 
 namespace c_sharp_console_examples
 {
-    class UpdateCommand
+    public class UpdateCommand
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

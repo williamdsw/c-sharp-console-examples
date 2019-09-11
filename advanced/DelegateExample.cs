@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class DelegateExample
+    public class DelegateExample
     {
         private const int MAX_NUMBER_OF_OCCURRENCES = 100;
         private delegate void Delegate ();

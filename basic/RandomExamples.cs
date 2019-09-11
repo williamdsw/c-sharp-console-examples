@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class RandomExamples
+    public class RandomExamples
     {
         private const int MAX_NUMBER_OF_OCCURRENCES = 10;
 

@@ -1,7 +1,7 @@
 ﻿
 namespace c_sharp_console_examples
 {
-    class Person
+    public class Person
     {
         //-----------------------------------------------------------------------//
         // FIELDS

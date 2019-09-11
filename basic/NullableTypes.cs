@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class NullableTypes
+    public class NullableTypes
     {
         private int? myInteger = null;
         private long? myLong = null;

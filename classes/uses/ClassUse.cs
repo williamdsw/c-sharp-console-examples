@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class ClassUse
+    public class ClassUse
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

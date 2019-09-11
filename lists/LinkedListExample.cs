@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace c_sharp_console_examples
 {
-    class LinkedListExample
+    public class LinkedListExample
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

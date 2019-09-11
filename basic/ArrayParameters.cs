@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class ArrayParameters
+    public class ArrayParameters
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

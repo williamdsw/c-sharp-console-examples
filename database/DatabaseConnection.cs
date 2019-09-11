@@ -3,7 +3,7 @@ using System;
 
 namespace c_sharp_console_examples
 {
-    class DatabaseConnection
+    public class DatabaseConnection
     {
         //-----------------------------------------------------------------------//
         // FIELDS

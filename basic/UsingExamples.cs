@@ -4,7 +4,7 @@ using System.Text;
 
 namespace c_sharp_console_examples
 {
-    class UsingExamples
+    public class UsingExamples
     {
         private const string filePath = "my-file.txt";
 

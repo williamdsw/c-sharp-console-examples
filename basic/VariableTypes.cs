@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class VariableTypes
+    public class VariableTypes
     {
         private int myInteger = 10;
         private long myLong = 300L;

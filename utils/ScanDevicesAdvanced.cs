@@ -6,7 +6,7 @@ namespace c_sharp_console_examples
     class ScanDevicesAdvanced
     {
         //-----------------------------------------------------------------------//
-        // CONSTRUCTORS
+        // CONSTRUCTOR
 
         public ScanDevicesAdvanced ()
         {

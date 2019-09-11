@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class EventExample
+    public class EventExample
     {
         private delegate void MyDelegate ();
         private event MyDelegate myEvent;

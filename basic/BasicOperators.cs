@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class BasicOperators
+    public class BasicOperators
     {
         private double a = 200;
         private double b = 35;

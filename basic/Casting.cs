@@ -2,7 +2,7 @@
 
 namespace c_sharp_console_examples
 {
-    class Casting
+    public class Casting
     {
         private int myInteger = 543;
         private double myDouble = 134.56;

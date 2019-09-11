@@ -6,7 +6,7 @@ using MySql.Data.MySqlClient;
 
 namespace c_sharp_console_examples
 {
-    class InsertCommand
+    public class InsertCommand
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR

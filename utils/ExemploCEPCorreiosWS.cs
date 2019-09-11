@@ -9,6 +9,7 @@ namespace CSharpConsoleExamples
 {
     class ExemploCEPCorreiosWS
     {
+        /*
         public ExemploCEPCorreiosWS ()
         {
             string CEP = "13303502";
@@ -32,6 +33,6 @@ namespace CSharpConsoleExamples
 
             string text = String.Format ("{0} - {1} - {2} - {3} - {4} - {5}", data.endereco, data.complemento, data.cep, data.bairro, data.cidade, data.uf);
             Console.WriteLine (text);
-        }
+        }*/
     }
 }

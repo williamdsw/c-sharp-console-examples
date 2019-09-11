@@ -2,7 +2,7 @@ using System;
 
 namespace c_sharp_console_examples
 {
-    class Team
+    public class Team
     {
         //-----------------------------------------------------------------------//
         // PROPERTIES

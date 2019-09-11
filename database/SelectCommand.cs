@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace c_sharp_console_examples
 {
-    class SelectCommand
+    public class SelectCommand
     {
         private const int TIME_TO_WAIT = 2000;
 

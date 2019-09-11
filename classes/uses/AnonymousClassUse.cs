@@ -2,12 +2,12 @@
 
 namespace c_sharp_console_examples
 {
-    class AnonymousClasses
+    public class AnonymousClassUse
     {
         //-----------------------------------------------------------------------//
         // CONSTRUCTOR
 
-        public AnonymousClasses ()
+        public AnonymousClassUse ()
         {
             var person = new
             {

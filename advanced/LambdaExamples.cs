@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace c_sharp_console_examples
 {
-    class LambdaExample
+    public class LambdaExample
     {
         private struct Film
         {
